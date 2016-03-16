@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		body{height:5000px;}
+		div{height:500px;width: 100%;margin: 0 auto;}
+		#div1{background-color: thistle;}
+		#div2{background-color: royalblue;}
+		#div3{background-color: salmon;}
+		#div4{background-color: turquoise;}
+		#div5{background-color: dimgray;}
+		#div6{background-color: goldenrod;}
+		#div7{background-color: silver;}
+		#div8{background-color: maroon;}
+
+		#sideBar{position:fixed;right: 0;bottom:100px;height: 270px;width: 30px;}
+		span{display: block;height: 30px;width: 30px;background-color: tan;text-align: center;line-height: 30px;}
+		a{text-decoration: none;color:white;border: 1px solid gray;display: block;}
+	</style>
+	<title>Document</title>
+</head>
+<body>
+	<div id="div1"></div>
+	<div id="div2"></div>
+	<div id="div3"></div>
+	<div id="div4"></div>
+	<div id="div5"></div>
+	<div id="div6"></div>
+	<div id="div7"></div>
+	<div id="div8"></div>
+
+	<div id="sideBar">
+		<a href="#div1"><span>1</span></a>
+		<a href="#div2"><span>2</span></a>
+		<a href="#div3"><span>3</span></a>
+		<a href="#div4"><span>4</span></a>
+		<a href="#div5"><span>5</span></a>
+		<a href="#div6"><span>6</span></a>
+		<a href="#div7"><span>7</span></a>
+		<a href="#div8"><span>8</span></a>
+		<a href="#div1"><span>^</span></a>
+	</div>
+
+<script type="text/javascript">
+
+window.onscroll = function(){
+
+	var scrollHeight = window.pageYOffset||document.documentElement.scrollHeight||document.body.scrollHeight||0;
+
+	var divAll = document.getElementsByTagName("div");
+	var sideBar = document.getElementsByTagName("span");
+
+	for(var i=0;i<divAll.length-1;i++){
+		if(divAll[i].offsetTop<scrollHeight&&(divAll[i].offsetTop+divAll[i].offsetHeight)>scrollHeight){
+			sideBar[i].style.background = "gold";
+		}else{
+			sideBar[i].style.background = "tan";
+		}
+	}
+	/*for(var i=0;i<sideBar.length;i++){
+		sideBarOnclick(sideBar,i);
+	}*/
+}
+/*function sideBarOnclick(sideBar,i){
+	sideBar[i].onclick = function(){
+		this.style.background= "gold";
+		if(i == 8){
+			scrollHeight = 0;
+		}else{
+			scrollHeight = divAll[i].offsetTop;
+		}
+	}
+}*/
+
+</script>
+</body>
+</html>

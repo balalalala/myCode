@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>缓冲运动</title>
+	<style type="text/css">
+	#div1{width: 100px;height: 100px;background: red;position: absolute;left: 0px;top:50px;}
+	#div2{width: 1px; height: 300px;position: absolute;background-color: black;left:300px;}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+	<div id="div2"></div>
+	<input type="button" id="button" value="开始运动"/>
+<script type="text/javascript">
+//逐渐变慢，直到最后停下来
+//距离大，速度大，距离小，速度小，速度和距离成正比
+window.onload = function(){
+	var div = document.getElementById("div1");
+	var button = document.getElementById("button");
+	var timer = null;
+	button.onclick = function(){
+		starmove(div,timer,300);
+	}
+}
+
+
+function starmove(div,timer,itarget){
+	timer = setInterval(function(){console.log(speed);
+		var speed = (itarget-div.offsetLeft)/10;//div.offsetLeft是不断获取的，运动之后它的值是变小的然后除以相同的数的话速度就会越来越小，除数越小得到的速度越大
+		//速度由距离决定  速度= （目标值-当前值）/缩放系数
+		speed = speed>0?Math.ceil(speed):Math.floor(speed);//向上取整零点几取到一还可以向前走
+		div.style.left = div.offsetLeft + speed + "px";
+	},30);
+}
+</script>
+</body>
+</html>

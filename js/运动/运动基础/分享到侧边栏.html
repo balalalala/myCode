@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>分享侧边栏</title>
+	<style type="text/css">
+	#div1{width: 150px;height: 200px;background-color: green;position: absolute;left:-150px;}
+	#div1 span{position: absolute;width: 20px;height: 60px;line-height: 20px;background-color: blue;right: -20px;top:70px;}
+	</style>
+</head>
+<body>
+	<div id="div1">
+		<span>分享到</span>
+	</div>
+
+
+<script type="text/javascript">
+	window.onload = function(){
+		var div = document.getElementById("div1");
+		var span = div.getElementsByTagName("span")[0];
+		var timer = null;
+		div.onmouseover = function(){
+			starmove(div,timer,0);
+		}
+		div.onmouseout = function(){
+			starmove(div,timer,-150);
+		}
+	}
+
+	function starmove(div,timer,itarget){
+		clearInterval(timer);
+		timer = setInterval(function(){
+			if(div.offsetLeft>itarget){
+				speed = -10;
+			}else{
+				speed = 10;
+			}
+			if(div.offsetLeft  == itarget){
+				clearInterval(timer);
+			}else{
+				div.style.left = div.offsetLeft + speed + "px";
+			}
+		},1000/60);
+	}
+</script>
+</body>
+</html>

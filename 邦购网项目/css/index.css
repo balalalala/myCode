@@ -1,0 +1,126 @@
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img { margin:0; padding:0; }
+fieldset, img { border:none; }
+img{display: block;}
+address, caption, cite, code, dfn, th, var { font-style:normal; font-weight:normal; }
+ul, ol { list-style:none; }
+
+body { color:#999; font:12px/20px "微软雅黑","SimSun","Arial Narrow",HELVETICA; background:#fff;/* overflow-y:scroll;*/ overflow-x:hidden;}
+a { color:#999; text-decoration:none; }
+a:hover, a:active, a:focus { color:#666;}
+
+.left{float:left;}
+.right{float: right;}
+#red{color: #d51819!important;}
+.opacity{opacity:0.7;filter:alpha(opacity:70);}
+/*    header    */
+.header{width: 100%;height: 254px;border-bottom: 3px solid #333;}
+.line{border-bottom: 1px solid #dcdcdc;}
+
+.header_top{margin:0 auto;width:1200px;height:132px;line-height: 32px;position: relative;}
+.header_top > .right > div{float: left;position: relative;border:1px solid transparent;}
+.header_top > .right > div > a{padding: 9px 25px 0 10px;z-index:10;}
+.header_top > .right > div:hover{border-right: 1px solid #b5b5b5;border-left:1px solid #b5b5b5;z-index:10;}
+.header_top > .right > a{float: left;margin: 1px 8px 0 10px;}
+.header_top > .right > div em {height: 3px;bottom: 2px;position:absolute;z-index:20;background:#fff; }
+.header_top > .right .mybanggo > a,.header_top .right .app > a{padding: 9px 25px 0 10px;background: url(http://s.mb-go.com/pub7/images/mbshop/veoimg/Veo_mbshop_spirit_pic.png) 64px -35px no-repeat;/* background-position: 65px 15px;background-color: #fff;z-index: 10; */}
+.header_top .log,.header_top .order{display:none;position: absolute;left:-1px;top:25px;width: 83px;border: 1px solid #b5b5b5;z-index:5;padding-bottom: 10px;background-color: #fff;border-top:none;}
+.header_top .log a,.header_top .order a{color:#000;display: block;height: 20px;padding-left:10px;}
+.header_top .log a:hover,.header_top .order a:hover{color:#666;}
+.header_top .apic{display: none;position: absolute;top:30px;left: -1px;}
+.header_top .weixin{position: relative;}
+.header_top .wxpic{ display: none;position: absolute;left:-80px;top:30px;}
+.header_top .down_arrow{display: inline-block;border:3px solid transparent;border-top:3px solid #999;margin-left: 8px;}
+.boxshadow{box-shadow: 0 0 5px #ccc;}
+
+.header_bottom{margin:0 auto;width:1200px;}
+/*    header_search    */
+.header_search{width: 1200px;height: 78px;margin: 0 auto;}
+
+.logo{margin:12px 0 0 14px; }
+.search{width: 381px;height:38px; margin: 22px 0 0 54px;}
+.search input{background:url(../images/search_text.jpg) no-repeat;border:none;width:341px;height: 38px; text-indent: 6px;outline: none;}
+.search span{display:block;background: url(../images/search_button.jpg) no-repeat;width: 40px;height: 38px;}
+
+.keywords{margin:30px 5px; color:#e0dce0;}
+.keywords a{color:#666;margin:0 8px;}
+
+.shopbag{color: #000;margin-top:32px;font-size: 14px; }
+.shopbag img{margin: -4px 15px 0 45px;}
+.shopbag span{display: inline-block;margin: 0 5px;}
+/*    main_nav    */
+.main_nav{width:1200px;height: 43px;margin: 0 auto;}
+.main_nav p{width: 240px;height:36px;font-size: 17px;color: #000;font-weight: bold;line-height: 43px;}
+.main_nav p img{margin-top: 15px;margin-right:10px; height: 15px;width: 18px;}
+.main_nav img{float: left;margin:0 15px;height: 43px;}
+
+/*    container    */
+/*    main    */
+.main{width: 1200px;margin: 0 auto;}
+.main_top{height:530px;width: 1200px;position: relative;}
+.main_top .main_top_left{width: 238px;height: 513px;border:1px solid #dcdcdc;padding: 7px 0;position: relative;}
+.main_top .main_top_left a{display: block;float: left;color: #000;margin-right:10px; }
+.main_top .main_top_left a:hover{color: #666;}
+.main_top .main_top_left li{height: 58px;margin-left: 15px;}
+.main_top .main_top_left li>dt,.main_top .main_top_left li>dd{height: 25px;}
+.main_top .main_top_left dt a{font-size: 16px;width: 100%;font-weight: bold;}
+.main_top .main_top_left dt i{float:right;margin:0px 14px 0 0;display:block;width: 6px;height: 10px;background: url(http://s.mb-go.com/pub7/images/mbshop/veoimg/Veo_mbshop_spirit_pic.png) 0 -191px no-repeat;}
+.main_top .main_top_left dt b{float:right;margin:0px -1px 0 0;display:none;width: 8px;height: 14px;background: url(http://s.mb-go.com/pub7/images/mbshop/veoimg/Veo_mbshop_spirit_pic.png) 0 -211px no-repeat;z-index:30;}
+.main_top .main_top_left_hover{overflow:hidden;width: 720px;height: 527px;border: 1px solid #999;border-top:none;position: absolute;top:0px;left:240px;display: none;background-color: #fff;box-shadow: 0 0 2px;z-index:9999999999;}
+.main_top .hoverTab{width:240px;height: 528px;float: left;z-index:9999999999;}
+.main_top .main_top_left_hover .lside{overflow: hidden;height: 527px;width: 179px;border-right:1px solid #dcdcdc;padding: 14px 0 0 14px;position: absolute;top:0;left: 0;}
+.main_top .main_top_left_hover .lside dl{padding-bottom: 8px;}
+.main_top .main_top_left_hover .lside dt{margin-bottom: 9px;}
+.main_top .main_top_left_hover .lside dt a{font-size: 15px;font-weight: bold;color: #000;}
+.main_top .main_top_left_hover .lside dd a{display: inline-block;padding-right: 10px !important;color: #999 !important;line-height: 19px !important}
+.main_top .main_top_left_hover .tside{height: 360px;width: 540px;position: absolute;top:0;left: 195px;}
+.main_top .main_top_left_hover .tside img{height: 360px;width: 540px;float: left;overflow: hidden;}
+.main_top .main_top_left_hover .bside{height: 167px;width: 540px;position: absolute;top:360px;left: 195px;}
+.main_top .main_top_left_hover .bside p{float: left;width:100%;clear: both; padding: 15px 0 5px 0;font: bold 15px "微软雅黑";color: #000;}
+.main_top .main_top_left_hover .bside dd{float: left;width: 110px;height: 35px;margin: 19px 15px 0 0 !important;}
+
+
+
+.main_top .main_top_center{width: 720px;height: 527px;border:1px solid #dcdcdc;border-left: none;}
+.main_top .main_top_center .pic{position:relative;height: 480px;border-bottom: 1px solid #dcdcdc;overflow: hidden;}
+.main_top .main_top_center .pic li{position: absolute;display: none;opacity: 1;filter:alpha(opacity:100);}
+.main_top .main_top_center .pic_mask{display:none;}
+.main_top .main_top_center .pic_lbtn{width: 20px;height: 50px;background: url(http://s.mb-go.com/pub7/images/mbshop/veoimg/Veo_mbshop_spirit_pic.png) 0 -788px no-repeat;position: absolute;left: 240px;top: 45%;margin-top: -25px;cursor: pointer;z-index: 88;}
+.main_top .main_top_center .pic_rbtn{width: 20px;height: 50px;background: url(http://s.mb-go.com/pub7/images/mbshop/veoimg/Veo_mbshop_spirit_pic.png) 0 -728px no-repeat;position: absolute;right: 240px;top: 45%;margin-top: -25px;cursor: pointer;z-index: 88;}
+.main_top .main_top_center .opt{height: 47px;}
+.main_top .main_top_center .opt li{width: 120px;float: left;height: 47px;text-align: center;line-height: 47px;font-size: 14px;font-weight: bold;letter-spacing: 2px;cursor: pointer;color: #666;padding-top: 3px;padding-bottom: 3px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;background: url(http://s.mb-go.com/pub7/images/mbshop/20150720/indexbannernavline.png) no-repeat right center;}
+.main_top .main_top_center .opt .opt_li_click{color:#000;border-top: 3px solid #000;padding-top: 0;}
+.main_top .main_top_right{width: 238px;height: 527px;border:1px solid #dcdcdc;border-left: none;}
+.main_top .main_top_right .top{height: 347px;border-bottom: 1px solid #dcdcdc;position: relative;}
+.main_top .main_top_right .bottom{height: 179px;}
+.main_top .main_top_right .time_w {font: bold 16px/16px Verdana;color: #000;}
+.main_top .main_top_right .time_num {position: absolute;top: 88px;left: 27px;width: 135px;height: 16px;}
+.main_top .main_top_right .time_num .time_txt {color: #999;font-size: 15px;}
+.main_top .main_top_right b{font-weight: bold;}
+.main_top .main_top_right .coutdown-time-wrap{width: 150px;}
+.main_bottom{height: 317px;position: relative;overflow: hidden;}
+.main_bottom .brand_btn span{display: block;z-index: 999;width: 40px;height: 40px;position: absolute;right: 0; top: 166px;cursor: pointer;}
+.main_bottom .brand_btn_left{left: 0;}
+.main_bottom ul{position: absolute;margin-left:-1px;left: 0; }
+.main_bottom ul li{float:left;width: 240px;height: 302px; }
+.main_bottom ul li a{display: block;width: 236px;height: 300px; margin: 0 2px;border: 1px solid #e9e9e9;}
+.main_bottom ul li dl dt{height: 160px;}
+.main_bottom ul li dl dd img {margin: 5px 41px 5px 44px;}
+.main_bottom ul li dl .brand_pic{height: 50px;background-color: #fdfdfd;overflow: hidden;}
+.main_bottom ul li dl .brand_txt {height: 52px;background-color: #fff;padding:5px 21px;height: 50px;color: #000;}
+/* 楼层开始 */
+.zyFloor{float: none;margin: 0 auto;width: 1200px;overflow: hidden;}
+.zyCont_wrap {width: 1200px;height: 534px;margin: 0 auto;}
+.zyCont_wrap h1 {font-size: 18px;height: 18px;padding: 25px 0 14px 0;font-family: "Micorsoft yahei";}
+.zyCont_wrap .Cont_Left {float: left;width: 240px;height: 477px;background-color: #fff;overflow: hidden;}
+.zyCont_wrap .Cont_Left_Top {overflow: hidden;}
+.zyCont_wrap .KeyWords {height: 81px;width: 239px;border-left: 1px solid #dcdcdc;border-right: 1px solid #dcdcdc;}
+.zyCont_wrap .KeyWords .KeyWords_Left {float: left;padding: 11px 0 10px 19px;}
+.zyCont_wrap .KeyWords li a {display: block;font-size: 14px;line-height: 30px;}
+.zyCont_wrap .KeyWords .KeyWords_Right {float: right;padding: 11px 40px 10px 0;}
+.zyCont_wrap .Cont_Left_Bottom {width: 160px;height: 165px;border: 1px solid #dcdcdc;padding: 31px 40px 17px 39px;overflow: hidden;}
+.zyCont_wrap .Cont_Left_Bottom li {height: 45px;margin-bottom: 10px;}
+.zyCont_wrap .Cont_Right {float: right;width: 960px;height: 477px;overflow: hidden;}
+.zyCont_wrap .Cont_Right ul {width: 1000px;height: 500px;}
+.zyCont_wrap .Cont_Right li {float: left;margin: 0 5px 5px 0;}
+
+/*    footer    */

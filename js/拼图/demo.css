@@ -1,0 +1,16 @@
+*{margin: 0;padding: 0}
+div{position: absolute;height:200px;width:200px;}
+#main{height: 600px;width: 600px;top:100px;;left: 100px;background:url(images/img.png);opacity:0.3;filter:alpha(opacity=30);}
+
+.main1{top:0;left:0;}
+.main2{top:0;left:200px;}
+.main3{top:0;left:400px;}
+.main4{top:200px;left:0;}
+.main5{top:200px;left:200px;}
+.main6{top:200px;left:400px;}
+.main7{top:400px;left:0;}
+.main8{top:400px;left:200px;}
+.main9{top:400px;left:400px;}
+
+
+.img{position:absolute;left:900px; top:500px;height: 200px;width: 200px;}

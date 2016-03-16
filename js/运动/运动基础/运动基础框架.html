@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<style type="text/css">
+	#div1{width: 200px;height: 200px;background-color: red;position:absolute; }
+	.line{width: 300px;border-right: 5px solid gray; height: 500px;}
+	</style>
+	<title>匀速div运动</title>
+</head>
+<body>
+	<input id="btn1" type = "button" value="开始运动">
+	<div id="div1"></div>
+	<div class="line"></div>
+
+
+<script type="text/javascript">
+//开始运动时关闭已有定时器
+//把运动和停止隔开
+	window.onload = function(){
+		var button = document.getElementById("btn1");
+		button.onclick = function(){
+			starmove();//点击按钮就会执行函数  函数里有定时器 所以没点就卡一下
+		}
+	}
+	//保证每次点击只有一个定时器工作
+	var timer = null;//定时器定在外面防止点多次速度叠加
+	function starmove () {
+		var div = document.getElementById("div1");
+		var speed = 7;
+		clearInterval(timer);//防止点多次速度叠加
+		timer = setInterval(function(){
+			if(div.offsetLeft >= 300){//不能准确的到达300  所以用大于号
+				clearInterval(timer);//位置判定
+			}else{
+				div.style.left = div.offsetLeft + speed +"px";//当到达目标只会执行clear解决每点一下一卡的现象
+			}
+		},1000/60);
+	}
+</script>
+</body>
+</html>

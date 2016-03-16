@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<style type="text/css">
+	#div1{width: 100px;height: 100px;background-color: red;filter:alpha(opacity:30);opacity: 0.3;}
+	</style>
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" id="btn1" value="运动">
+	<div id="div1"></div>
+<script type="text/javascript">
+	window.onload = function(){
+		var obtn = document.getElementById("btn1");
+		var odiv = document.getElementById("div1");
+		obtn.onclick = function(){
+			starmove(odiv,{width:101,height:300,opacity:100},function(){
+				console.log("balalal");
+			});
+			//要等到所有东西都达到想要的值再关闭定时器，如果没有不到的关闭
+		};
+	}
+	//只能写一个属性，两个属性同时传不进去,完美运动框架运用json
+	//json比较重要的是循环，必须用for-in
+	//starmove(odiv,{width:400,height:400});
+	function starmove(obj,json,fnend){//新加入一个函数参数,,结束的时候被调用
+		clearInterval(obj.timer);
+		obj.timer = setInterval(function(){
+			var bstop = true;  //假设所有的值都已经到了
+			for(var attr in json){
+				var cur = 0;
+				if(attr == "opacity"){
+					cur = Math.round(parseFloat(getStyle(obj,attr))*100);//Math.round()解决小数乘法bug问题
+				}else{
+					cur = parseInt(getStyle(obj,attr));
+				}
+				var speed = (json[attr] - cur)/6;
+				speed = speed>0?Math.ceil(speed):Math.floor(speed);
+				if(cur != json[attr]){
+					bstop = false;
+				}
+				if(attr == "opacity"){
+					obj.style.filter = "alpha(opacity:" + (cur+speed)+")";
+					obj.style.opacity = (cur+speed)/100;//注意加括号
+				}else{
+					obj.style[attr] = cur+speed+"px";
+				}
+			}
+			if(bstop){
+				clearInterval(obj.timer);
+				if(fnend)fnend();
+			}
+		},30);
+		function getStyle(obj,name){
+			if(obj.currentStyle){
+				return obj.currentStyle[name];
+			}else{
+				return getComputedStyle(obj,false)[name];
+			}
+		}
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html >
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<div id="ajaxSt">
+	
+</div>
+<button id="showBtn">显示数据</button>
+<script>
+
+var box=document.getElementById("ajaxSt");
+var but=document.getElementById("showBtn");
+but.onclick=function(){
+	getajax("get","http://datainfo.duapp.com/test/ajaxTest.php",{name:"v",id:"c"},function(data){
+		var data=JSON.parse(data);
+		box.innerHTML='<p>名字：'+data.name+'</p><p>ID：'+data.id+'</p><p>班级：'+data.class+'</p>';
+	});
+}
+
+/*封装AJAX请求函数*/
+function getajax(method,url,parameter,fn){
+	var httpRequest=null;
+	var thisp="";
+	for(var i in parameter){
+		thisp+=i+"="+parameter[i]+"&";
+	}
+	thisp=thisp.substr(0,thisp.length-1);
+	//console.log(thisp);
+	if(window.XMLHttpRequest){
+		httpRequest=new XMLHttpRequest();
+	}else{
+		httpRequest=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	if(method=="get"){
+		httpRequest.open(method,url+"?"+thisp,true);
+		httpRequest.send();
+	}else if(method=="post"){
+		httpRequest.open(method,url,true);
+		httpRequest.send(thisp);
+	}
+	
+	httpRequest.onreadystatechange=function(){
+		//console.log(httpRequest.status+"__"+httpRequest.readyState);
+		var data=null;
+		if(httpRequest.status==200){
+			if(httpRequest.readyState==4){
+				if(typeof(fn)=="function"){
+					fn(httpRequest.responseText);
+				}
+				//data=JSON.parse();
+				//console.log(httpRequest.responseText);
+				//eval("asdfadfafakjah");
+				//JSON.parse();
+				//box.innerHTML='<p>名字：'+data.name+'</p><p>ID：'+data.id+'</p><p>班级：'+data.class+'</p>'
+				//console.log(data.name);
+			}
+		}else{
+			console.log("服务器连接失败！！");
+		}
+	}
+}
+</script>
+</body>
+</html>

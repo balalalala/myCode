@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	div{width: 200px;height: 200px;background-color: red;margin:20px;float: left;opacity: 0.3;filter:alpha(opacity:30);}
+	</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+
+<script type="text/javascript">
+//多物体运动框架，定时器作为物体的属性，参数的传递：物体，目标值
+//所有东西都不能共用，属性与运动对象绑定：速度，其他属性值（如透明度等）
+	window.onload = function(){
+		var div = document.getElementsByTagName("div");
+		for(var i=0;i<div.length;i++){
+			div[i].timer = null;
+			div[i].alpha = 30;
+			div[i].onmouseover = function(){
+				starmove(this,100);
+			}
+			div[i].onmouseout = function(){
+				starmove(this,30);
+			}
+		}
+	}
+	function starmove(obj,itarget){
+		clearInterval(obj.timer);
+		obj.timer = setInterval(function(){
+			var speed = (itarget -obj.alpha)/6;
+			speed = speed>0?Math.ceil(speed):Math.floor(speed);
+			if(obj.alpha == itarget){
+				clearInterval(obj.timer);
+			}else{
+				obj.alpha += speed;
+				obj.style.filter = "alpha(opacity:"+obj.alpha+")";
+				obj.style.opacity = obj.alpha/100;
+			}
+		},30);
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>淡入淡出图片</title>
+	<style type="text/css">
+	#div1{width: 200px;height: 200px;background-color: red;filter:alpha(opacity:30);opacity: 0.3;}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+
+<script type="text/javascript">
+window.onload = function(){
+	var div = document.getElementById("div1");
+	div.onmouseover = function(){
+		fade(100,div);
+	}
+	div.onmouseout = function(){
+		fade(30,div);
+	}
+}
+var timer = null;var alpha=30;//必须设成全局不然不能运行,去的每次移动到div都会传进从30开始变所以需要设成全局
+//透明度不好取，所以有时候需要设置一些变量来表示
+function fade(itarget,div){
+	clearInterval(timer);
+	timer = setInterval(function(){
+		var speed = 0;
+		if(alpha<itarget){
+			speed = 10;
+		}else{
+			speed = -10;
+		}
+		if(alpha == itarget){
+			clearInterval(timer);
+		}else{
+			alpha += speed;
+			div.style.filter = 'alpha(opacity:'+alpha+')';
+			div.style.opacity = alpha/100;
+		}
+	},1000/6);
+}
+</script>
+</body>
+</html>

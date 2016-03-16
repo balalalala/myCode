@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>匀速运动停止</title>
+	<style type="text/css">
+	#div1{width: 100px;height: 100px;background: red;position: absolute;left: 900px;top:50px;}
+	#div2{width: 1px; height: 300px;position: absolute;background-color: black;left:300px;}
+	#div3{width: 1px; height: 300px;position: absolute;background-color: black;left:100px;}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+	<div id="div2"></div>
+	<div id="div3"></div>
+	<input type="button" id="button1" value="到100"/>
+	<input type="button" id="button2" value="到300"/>
+<script type="text/javascript">
+window.onload = function(){
+	var div = document.getElementById("div1");
+	var button1 = document.getElementById("button1");
+	var button2 = document.getElementById("button2");
+	var timer = null;
+	button1.onclick = function(){
+		starmove(div,timer,100);
+	}
+	button2.onclick = function(){
+		starmove(div,timer,300);
+	}
+}
+
+
+function starmove(div,timer,itarget){
+	timer = setInterval(function(){
+		var speed = 0;
+		if(div.offsetLeft<itarget){
+			speed = 7;
+		}else{
+			speed = -7;
+		}
+		if(Math.abs(itarget-div.offsetLeft)<=7){//div到了100的边界一直抖是因为速度是7没有除开，所以给一个停止条件
+			clearInterval(timer);div.style.left = itarget+"px";//使div到达目标贴在那条线上
+
+		}else{
+			div.style.left = div.offsetLeft + speed + "px";
+		}
+	},30);
+}
+</script>
+</body>
+</html>

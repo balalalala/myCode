@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<style type="text/css">
+	body,div,p{margin: 0;padding: 0;}
+	p{text-align: center;line-height: 30px;font-size: 20px;}
+	#pid{font-size:150px;height:100%;line-height: 150px;}
+	</style>
+	<title>Document</title>
+</head>
+<body>
+	<input id="bid1" type="button" value="300"/>
+	<input id="bid2" type="button" value="400"/>
+	<input id="bid3" type="button" value="500"/>
+
+	<script type="text/javascript">
+	window.onload = function(){
+		//自定义弹出窗
+		var oBtn1 = document.getElementById("bid1");
+		var oBtn2 = document.getElementById("bid2");
+		var oBtn3 = document.getElementById("bid3");
+		var oBody = document.getElementsByTagName("body")[0];
+
+		oBtn1.onclick = function(){
+			creatPromt("500px","200px","silver","title300");
+		}
+		oBtn2.onclick = function(){
+			creatPromt("400px","300px","chocolate","title400");
+		}
+		oBtn3.onclick = function(){
+			creatPromt("500px","400px","tan","title500");
+		}
+
+		function creatPromt(width,height,background,ti){
+			var newdiv = document.createElement("div");
+			var title = document.createElement("p");
+			var btn = document.createElement("button");
+
+			oBody.appendChild(newdiv);
+			newdiv.appendChild(title);
+			newdiv.appendChild(btn);
+			newdiv.style.height = height;
+			newdiv.style.width = width;
+			newdiv.style.background = "black";
+			newdiv.style.position = "absolute";
+			newdiv.style.left = "500px";
+			newdiv.style.top = "200px";
+			title.style.background = background;
+			title.style.height = "30px";
+			title.style.width = "100%";
+			title.innerHTML = ti;
+			btn.style.height = "30px";
+			btn.style.width = "50px";
+			btn.style.position = "absolute";
+			btn.style.top = "0";
+			btn.style.right = "0";
+			btn.innerHTML = "close";
+			btn.onclick = function(){
+				oBody.removeChild(newdiv,title);
+			};
+			drag(newdiv,title,event);
+		}
+		function drag(div,title){
+			title.onmousedown = function(){
+				var disX = event.clientX - div.offsetLeft;
+				var disY = event.clientY - div.offsetTop;
+				document.onmousemove = function(){
+					div.style.left = event.clientX - disX + "px";
+					div.style.top = event.clientY - disY + "px";
+					/*if(div.style.left<0){div.style.left = 0;}
+					else if(div.style.left>event.clientX + "px"){div.style.left = event.clientX + "px";}
+					else if(div.style.top<0){div.style.top = 0;}
+					else if(div.style.top>event.clientY + "px"){div.style.top = event.clientY+ "px";}*/
+				}
+				document.onmouseup = function(){
+					document.onmousemove = null;
+					div.onmouseup = null;
+				}
+			}
+			/*var onmousedown,onmouseup,onmousemove;
+			onmousedown = EventUtil.addHandler(div,"mousedown",function(event){
+				var disX = event.clientX - div.offsetLeft;
+				var disY = event.clientY - div.offsetTop;
+				onmousemove = EventUtil.addHandler(div,"mousemove",function(event){
+					div.style.left = event.clientX - disX + "px";
+					div.style.top = event.clientY - disY + "px";
+				});
+			});
+			onmouseup = EventUtil.addHandler(div,"mouseup",function(event){
+				EventUtil.removeHandler(div,"mousemove");
+				EventUtil.removeHandler(div,"mouseup");
+			});*/
+		}
+
+
+
+
+
+		//跨浏览器的事件处理程序
+		/*var EventUtil = {
+			addHandler : function(element,type,hanlder){
+				if(element.addEventListener){
+					element.addEventListener(type,hanlder,false);
+				}else if(element.attachEvent){
+					element.attachEvent("on" + type,hanlder);
+				}else{
+					element["on"+ type] = hanlder;
+				}
+			},
+			removeHandler : function(element,type,hanlder){
+				if(element.removeEventListener){
+					element.removeEventListener(type,hanlder,false);
+				}else if(element.datachEvent){
+					element.datachEvent("on" + type,hanlder);
+				}else{
+					element["on"+ type] = null;
+				}
+			}
+		};*/
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<style type="text/css">
+	#div1{height: 200px;width: 200px;background-color: red;border:1px solid black;}
+	</style>
+	<title>Document</title>
+</head>
+<body>
+<div id="div1" style="width:200px"></div><!-- 用style获取div宽度只能通过行内css获取，所以要把行内样式
+ -->
+<script type="text/javascript">
+//offsetWidth得到的是加入border padding margin 的宽度
+	setInterval(function(){
+		var div1 = document.getElementById("div1");
+		//div1.style.width = div1.offsetWidth - 1 + "px";
+		div1.style.width = parseInt(getStyle(div1,"width")) - 1 + "px";
+		//div1.style.width = parseInt(div1.style.width) - 1 + "px";//获取样式除了可以把样式写在行内样式里之外还可以用函数getStyle
+	},30);
+//获取样式
+	function getStyle(obj,name){
+		if(obj.currentStyle){
+			return obj.currentStyle[name];
+		}else{
+			return getComputedStyle(obj,false)[name];
+		}
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>TAB切换</title>
+		<style>
+		    body{padding: 0px;margin: 0px;}
+		    .container{
+		    	width:100%;
+		    }
+			.tabHeader{
+				width:100%;height: 90px;background-color: #00bcd4;
+			}
+			.tabHeader>div{
+				width:33%;height:90px;float: left;text-align: center;line-height:100px;font-size: 20px;color: #FFFFFF;
+			}
+			.tabBody{
+				width:100%;height: 400px;border-radius: 3px;box-shadow: 1px 2px 2px #acacac;
+			}
+			.current{
+				    left: calc(33.333333333333336%*0);
+				    width: 33.333333333333336%;
+				    bottom: 0;
+				    display: block;
+				    background-color: red;
+				    height: 2px;
+				    margin-top: -2px;
+				    position: relative;
+				    transition: left 1s cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+			}
+		</style>
+
+	</head>
+	<body>
+	   <div class="container">
+	        <div class="tabHeader">
+			    <div name="comp">Component</div>
+			    <div name="css">Css</div>
+			    <div name="js">Js</div>
+			</div>
+			<div class="current"></div>
+			
+			<div class="tabBody">
+				<div>This is Component</div>
+				<div style="display:none;">This is CSS</div>
+				<div style="display:none;">This is JS</div>
+			</div>
+	   </div>
+		<script type="text/javascript" src="../jquery-2.2.0.js"></script>
+		<script type="text/javascript" src="index.js"></script>
+	</body>
+</html>

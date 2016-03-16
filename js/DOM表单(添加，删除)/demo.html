@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<style type="text/css">
+		body,div,p{margin: 0;padding: 0;}
+		#mainBox{width: 300px;}
+		#mainBox div{width: 100%;height:30px;border: 1px solid #666;background-color: chocolate;text-align: center;}
+		#mainBox p{height: 200px;width:100%;border:1px solid #666;background-color: silver;display: none;}
+		.newDiv{width: 100%;height:30px;border: 1px solid #666;background-color: chocolate;text-align: center;}
+		.newP{height: 200px;width:100%;border:1px solid #666;background-color: silver;display: none;}
+	</style>
+	<title>Document</title>
+</head>
+<body>
+	<div id="mainBox">
+		<input type="button" id="bid1" value="添加菜单到最后"/>
+		<input type="button" id="bid2" value="添加菜单到之前"/>
+		<input type="button" id="bid3" value="删除菜单"/>
+		<div>title1</div>
+		<p>1111111111</p>
+		<div>title2</div>
+		<p>2222222222</p>
+		<div>title3</div>
+		<p>3333333333</p>
+		<div>title4</div>
+		<p>4444444444</p>
+	</div>
+
+	<script type="text/javascript">
+	window.onload = function(){
+		var oBtn1 = document.getElementById("bid1");
+		oBtn1.onclick = function(){
+			var oDiv = document.getElementById("mainBox");
+			var newDiv = document.createElement("div");
+			var newP = document.createElement("p");
+			oDiv.appendChild(newDiv);
+			oDiv.appendChild(newP);
+			newDiv.innerHTML = "title";
+			newP.innerHTML = "lalalaalalalalal";
+			mainBox = document.getElementById("mainBox");
+			boxChild = mainBox.childNodes;
+			divAll = mainBox.getElementsByTagName("div");
+			pAll = mainBox.getElementsByTagName("p");
+			deleteText();
+			for(var i=0;i<divAll.length;i++){
+				divAll[i].onclick = function(){
+					hideAllP();
+					this.nextSibling.style.display = "block";
+				}
+			}
+		}
+
+
+		var oBtn2 = document.getElementById("bid2");
+		oBtn2.onclick = function(){
+			var oDiv = document.getElementById("mainBox");
+			var newDiv = document.createElement("div");
+			var newP = document.createElement("p");
+			var divAll = mainBox.getElementsByTagName("div");
+			var pAll = mainBox.getElementsByTagName("p");
+			var firstDiv = divAll[0];
+			var firstP = divAll[0];
+			oDiv.insertBefore(newDiv,firstDiv);
+			oDiv.insertBefore(newP,firstP);
+			newDiv.innerHTML = "title";
+			newP.innerHTML = "lalalaalalalalal";
+			mainBox = document.getElementById("mainBox");
+			boxChild = mainBox.childNodes;
+			divAll = mainBox.getElementsByTagName("div");
+			pAll = mainBox.getElementsByTagName("p");
+			deleteText();
+			for(var i=0;i<divAll.length;i++){
+				divAll[i].onclick = function(){
+					hideAllP();
+					this.nextSibling.style.display = "block";
+				}
+			}
+		}
+
+
+
+		var oBtn3 = document.getElementById("bid3");
+		oBtn3.onclick = function(){
+			var oDiv = document.getElementById("mainBox");
+			var divAll = mainBox.getElementsByTagName("div");
+			var pAll = mainBox.getElementsByTagName("p");
+			var divLast = divAll[divAll.length-1];
+			var pLast = pAll[pAll.length-1];
+			oDiv.removeChild(divLast);
+			oDiv.removeChild(pLast);
+		}
+
+
+
+
+
+		var mainBox = document.getElementById("mainBox");
+		var boxChild = mainBox.childNodes;
+		var divAll = mainBox.getElementsByTagName("div");
+		var pAll = mainBox.getElementsByTagName("p");
+		deleteText();
+		for(var i=0;i<divAll.length;i++){
+			divAll[i].onclick = function(){
+				hideAllP();//在打开之前全关上
+				this.nextSibling.style.display = "block";
+				/*if(this.nextSibling.style.display == "none"){
+					this.nextSibling.style.display = "block";
+				}
+				else if(this.nextSibling.style.display != "none"){
+					this.nextSibling.style.display = "none";
+				}*/
+			}
+			/*divAll[i].onmouseover = function(){
+				this.nextSibling.style.display = "block";
+			}
+			divAll[i].onmouseout = function(){
+				this.nextSibling.style.display = "none";
+			}*/
+		}
+		function hideAllP(){
+			for(var i=0;i<pAll.length;i++){
+				pAll[i].style.display = "none";
+			}
+		}
+
+		function deleteText(){
+			for(var i=0;i<boxChild.length;i++){
+				if(boxChild[i].nodeType == 3){
+					mainBox.removeChild(boxChild[i]);
+				}
+			}
+		}
+	}
+	</script>
+</body>
+</html>

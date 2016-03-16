@@ -1,0 +1,16 @@
+*{margin: 0;padding: 0;font-family: "微软雅黑";}
+a{text-decoration: none;}
+ol,ul,li{list-style: none;}
+#mianbao{height: 600px;width: 678px;margin: 20px auto;box-shadow: 2px 2px 2px 2px #acacac;position: relative;overflow: hidden;}
+.mask{height: 398px;width: 678px;position: absolute;left: 0;top:0;z-index: 9999999999999999;}
+.mask .left{width: 50%;height: 100%;float: left;opacity: 0;filter:alpha(opacity:0);}
+.mask .left a{margin-left: 30px;}
+.mask a{z-index:1;margin-top:180px;line-height:40px;text-align:center;font-size: 40px;font-weight: bold;color: white;background-color: gray;border-radius: 3px;height: 50px;width: 50px;box-shadow: 1px 1px 2px 2px #acacac;display: block;opacity: 0.8;filter:alpha(opacity:80);cursor:pointer;}
+.mask .right{width: 50%;height: 100%;float: left;opacity: 0;filter:alpha(opacity:0);}
+.mask .right a{margin-left: 260px;}
+.largepic{height: 398px;width: 100%;box-shadow: 2px 2px 2px 2px #acacac;border: 2px solid #acacac;}
+.largepic img{display:block;height: 400px;width:100%;overflow: hidden;position: absolute;top:0;left: 0;}
+.smallpic{position: relative;height:199px;width: 100%;box-shadow: 2px 2px 2px 2px #acacac;overflow: hidden;border: 2px solid #acacac;}
+.smallpic .smallmain{width:2300px;position: absolute;top:0;left:0;}
+.smallpic li{float: left;border:2px solid gray;height: 200px;width:223px;opacity: 0.5;filter:alpha(opacity:50);}
+.smallpic img{display:block;overflow: hidden;height: 200px;width:223px;}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	div{width: 200px;height: 200px;background-color: red;margin:20px;float: left;}
+	</style>
+</head>
+<body>
+	<div id="div1">变高</div>
+	<div id="div2">变宽</div>
+
+<script type="text/javascript">
+	window.onload = function(){
+		var div1 = document.getElementById("div1");
+		var div2 = document.getElementById("div2");
+		div1.onmouseover = function(){
+			starmove(this,400);
+		}
+		div1.onmouseout = function(){
+			starmove(this,200);
+		}
+		div2.onmouseover = function(){
+			starmove2(this,400);
+		}
+		div2.onmouseout = function(){
+			starmove2(this,200);
+		}
+	}
+	function starmove(obj,itarget){
+		clearInterval(obj.timer);
+		obj.timer = setInterval(function(){
+			var speed = (itarget -obj.offsetHeight)/6;
+			speed = speed>0?Math.ceil(speed):Math.floor(speed);
+			if(obj.offsetHeight == itarget){
+				clearInterval(obj.timer);
+			}else{
+				obj.style.height = obj.offsetHeight+speed+"px";
+			}
+		},30);
+	}
+	function starmove2(obj,itarget){
+		clearInterval(obj.timer);
+		obj.timer = setInterval(function(){
+			var speed = (itarget -obj.offsetWidth)/6;
+			speed = speed>0?Math.ceil(speed):Math.floor(speed);
+			if(obj.offsetWidth == itarget){
+				clearInterval(obj.timer);
+			}else{
+				obj.style.width = obj.offsetWidth+speed+"px";
+			}
+		},30);
+	}
+</script>
+</body>
+</html>

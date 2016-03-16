@@ -1,0 +1,55 @@
+*{margin: 0;padding: 0;font-family: "微软雅黑";font-size: 13px;}
+ul,li,ol{list-style-type:none; }
+a{text-decoration: none;}
+.left{float:left;}
+.right{float:right;}
+/* ------------------------nav-------------------------- */
+.outer{width: 100%;background-color: #000;height: 38px;}
+.header_nav {width: 1220px;margin: 0 auto;height: 38px;}
+.header_nav a{color:white;line-height: 38px;margin:0 10px;}
+.header_nav a:hover{color:red;}
+.header_nav .nav_left{float: left;width: 800px;}
+.header_nav .nav_left li{float: left;color:white;}
+.header_nav  img{margin-left:5px; }
+.header_nav .nav_right{width: 200px;}
+.header_nav .nav_right li{float: left;color:white;}
+
+/* -----------------------login------------------------- */
+#login_box{height: 280px;width: 430px;border:1px solid #C6C6C6;position: absolute;top:100px;left:496px; display: none; background-color: #fff;}
+#login_box .login_title{border-bottom: 1px solid #7F7F7F;height:37px;width: 415px;background-color: #000;color:#fff;font-size: 15px;line-height: 37px;padding-left: 15px;}
+#login_box .login_title span{height: 37px;width: 30px;line-height: 37px;text-align: center;color:#fff;display: inline-block;}
+
+#login_box .login_cont{padding-top: 10px;}
+#login_box .login_input{height: 26px;width:286px;border:1px solid #c2c2c2;padding-left: 10px;}
+#login_box .login_cont span{font-size: 12px;color:#222;width: 94px;height: 26px;display: inline-block;text-align: right;line-height: 26px;padding-right: 5px;}
+#login_box .login_cont p{height: 27px;color:#ee1d22;padding-left: 99px;}
+#login_box .login_codeText{width: 118px;height: 24px;}
+#login_box .login_code{height: 24px;width: 60px;margin:0 5px; }
+#login_box .login_cont .login_change{height: 26px;width: 80px;color:#222;text-align: center;line-height: 26px;display: inline-block;background-color: silver;}
+#login_box .login_cont .login_change a{color:#fff;}
+#login_box .login_cont .login_checked{height: 47px;width: 220px;text-align: center;line-height: 60px;font-size: 12px;margin-left: 95px;}
+#login_box .login_cont .login_checked a{color:#005ce4;font-size: 12px;height: 28px;margin:0 5px;}
+#login_box .login_cont #login_btn{height: 26px;text-indent: -9999;border:1px solid silver;margin: 30px 0 0 120px;background-color: black;width: 150px;border-radius: 5px;color:white;}
+#login_box .login_cont #login_btn:hover{color:red;}
+
+
+
+
+
+/* ----------------------register----------------------- */
+#register_box{height: 320px;width: 430px;border:1px solid #C6C6C6;position: absolute;top:100px;left:496px;display: none;background-color: #fff;}
+#register_box .register_title{border-bottom: 1px solid #7F7F7F;height:37px;width: 415px;background-color: #000;color:#fff;font-size: 15px;line-height: 37px;padding-left: 15px;}
+#register_box .register_title span{height: 37px;width: 30px;line-height: 37px;text-align: center;color:#fff;display: inline-block;}
+
+#register_box .register_cont{padding-top: 10px;}
+#register_box .register_input{height: 26px;width:286px;border:1px solid #c2c2c2;padding-left: 10px;}
+#register_box .register_cont span{font-size: 12px;color:#222;width: 94px;height: 26px;display: inline-block;text-align: right;line-height: 26px;padding-right: 5px;}
+#register_box .register_cont p{height: 27px;color:#ee1d22;padding-left: 99px;}
+#register_box .register_codeText{width: 118px;height: 24px;}
+#register_box .register_code{height: 24px;width: 60px;margin:0 5px; }
+#register_box .register_cont .change {height: 26px;width: 80px;color:#222;text-align: center;line-height: 26px;display: inline-block;background-color: silver;}
+#register_box .register_cont .change a{color:#fff;}
+#register_box .register_cont .checked{height: 47px;width: 220px;text-align: center;line-height: 60px;font-size: 12px;margin-left: 95px;}
+#register_box .register_cont .checked a{color:#005ce4;font-size: 12px;height: 28px;margin:0 5px;}
+#register_box .register_cont #submit_btn{height: 26px;text-indent: -9999;border:1px solid silver;margin: 30px 0 0 120px;background-color: black;width: 150px;border-radius: 5px;color:white;}
+#register_box .register_cont #submit_btn:hover{color:red;}
