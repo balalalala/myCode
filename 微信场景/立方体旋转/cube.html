@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<style type="text/css">
+	*{margin:0;padding: 0;}
+	body,html{height: 100%;width: 100%;}
+	.cubeBg{height: 100%;width: 100%;background: url(../material/images/cubeBg.jpg) no-repeat;background-size: cover;position: relative;}
+	.cubeBox{height: 3.5rem;width: 3.5rem;position: relative;transform-origin:left;-webkit-transform-style: preserve-3d;position: absolute;left:50%;top:50%;margin-left:-1.75rem;margin-top:-1.75rem;transform-origin:1.75rem 1.75rem -1.75rem;transform:rotateX(30deg) rotateY(30deg);}
+	.cubeBox li{position: absolute;height: 3.5rem;width: 3.5rem;list-style: none;text-align: center;}
+	.cubeBox li img{height: 100%;width: 100%;}
+	.cubeBox li:nth-of-type(1){left:50%;top:50%;margin-left:-1.75rem;margin-top:-1.75rem;}
+	.cubeBox li:nth-of-type(2){left:50%;top:50%;margin-left:-5.25rem;margin-top:-1.75rem;transform-origin:right;transform:rotateY(-90deg);}
+	.cubeBox li:nth-of-type(3){left:50%;top:50%;margin-left:-1.75rem;margin-top:-5.25rem;transform-origin:bottom;transform:rotateX(90deg);}
+	.cubeBox li:nth-of-type(4){left:50%;top:50%;margin-left:1.75rem;margin-top:-1.75rem;transform-origin:left;transform:rotateY(90deg);}
+	.cubeBox li:nth-of-type(5){left:50%;top:50%;margin-left:-1.75rem;margin-top:1.75rem;transform-origin:top;transform:rotateX(-90deg);}
+	.cubeBox li:nth-of-type(6){left:50%;top:50%;margin-left:-1.75rem;margin-top:-1.75rem;transform-origin:center;transform:rotate(180deg);transform:translateZ(-3.5rem);}
+	</style>
+	<title>cube</title>
+</head>
+<body>
+	<div class="cubeBg">
+		<div class="cubeBox">
+			<ul>
+				<li><img src="../material/images/cubeImg1.png" height="510" width="510"></li>
+				<li><img src="../material/images/cubeImg2.png" height="510" width="510"></li>
+				<li><img src="../material/images/cubeImg3.png" height="510" width="510"></li>
+				<li><img src="../material/images/cubeImg4.png" height="510" width="510"></li>
+				<li><img src="../material/images/cubeImg5.png" height="510" width="510"></li>
+				<li><img src="../material/images/cubeImg6.png" height="510" width="510"></li>
+			</ul>
+		</div>
+	</div>
+
+<script type="text/javascript">
+	window.onload = function(){
+		document.documentElement.style.fontSize = document.documentElement.clientWidth/6.4+'px';
+
+		var cubeBox = document.querySelector(".cubeBox");
+		var step = 0.2,pos = {x:0,y:0},deg={x:0,y:0};
+		cubeBox.addEventListener("touchstart",function(event){
+			pos.x = event.touches[0].clientX;
+			pos.y = event.touches[0].clientY;
+			//console.log(xStart+" "+yStart);
+		});
+		cubeBox.addEventListener("touchmove",function(event){
+			var xNow = event.touches[0].clientX;
+			var yNow = event.touches[0].clientY;console.log((xNow-pos.x)+" "+(yNow-pos.y));
+			deg.x += ( xNow- pos.x) * step;
+			deg.y -= ( yNow - pos.y) * step;
+			cubeBox.style.transform = 'rotateX('+deg.y+'deg) rotateY('+deg.x+'deg)';
+			pos.x = event.touches[0].clientX;
+			pos.y = event.touches[0].clientY;
+		});
+		cubeBox.addEventListener("touchend",function(event){
+
+		});
+	}
+</script>
+</body>
+</html>
